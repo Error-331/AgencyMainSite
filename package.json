@@ -6,6 +6,7 @@
   "author": "Sergei Selihov",
   "license": "proprietary",
   "scripts": {
+    "build": "gulp copy-html & gulp copy-images & gulp compile-scss",
     "start_server": "node ./src_server/server.js"
   },
   "dependencies": {},
