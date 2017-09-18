@@ -4,7 +4,7 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 
-const {SERVER_PORT, HTML_PAGES_DIRECTORY_NAME, RESOURCES_DIRECTORY_NAME, FILE_EXTENSION_TO_MIME_TYPE} = require ('./js/constants');
+const {SERVER_PORT, HTML_PAGES_DIRECTORY_PATH, RESOURCES_DIRECTORY_PATH, FILE_EXTENSION_TO_MIME_TYPE} = require ('./js/constants');
 
 const getMIMETypeForFileExtension = (fileExtension) => {
     const fileMIMEType = FILE_EXTENSION_TO_MIME_TYPE[fileExtension.toLocaleLowerCase()];
@@ -86,14 +86,14 @@ const serveStaticFileByURLParams = (request, response, pathParams, queryParams) 
             }
 
             if (fileExtension === 'html') {
-                pathToFile = `${__dirname}/${HTML_PAGES_DIRECTORY_NAME}/${fileName}.${fileExtension}`;
+                pathToFile = `${__dirname}/${HTML_PAGES_DIRECTORY_PATH}/${fileName}.${fileExtension}`;
 
             } else {
                 const pathParamsCopy = pathParams;
                 pathParams.pop();
 
                 const pathToDirectory = pathParamsCopy.length > 0 ? `/${pathParamsCopy.join('/')}/` : '/';
-                pathToFile = `${__dirname}/${RESOURCES_DIRECTORY_NAME}${pathToDirectory}${fileName}.${fileExtension}`;
+                pathToFile = `${__dirname}/${RESOURCES_DIRECTORY_PATH}${pathToDirectory}${fileName}.${fileExtension}`;
             }
 
             let fileContents;

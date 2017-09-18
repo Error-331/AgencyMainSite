@@ -2,8 +2,10 @@
 
 const SERVER_PORT = 9024;
 
-const HTML_PAGES_DIRECTORY_NAME = './../public/pages';
-const RESOURCES_DIRECTORY_NAME = './../public/resources';
+const PUBLIC_DIRECTORY_PATH = './../public';
+
+const HTML_PAGES_DIRECTORY_PATH = `${PUBLIC_DIRECTORY_PATH }/pages`;
+const RESOURCES_DIRECTORY_PATH = `${PUBLIC_DIRECTORY_PATH }/resources`;
 
 const HTML_MIME_TYPE = 'text/html';
 const CSS_MIME_TYPE = 'text/css';
@@ -28,8 +30,8 @@ const FILE_EXTENSION_TO_MIME_TYPE = Object.freeze({
 
 module.exports.SERVER_PORT = SERVER_PORT;
 
-module.exports.HTML_PAGES_DIRECTORY_NAME = HTML_PAGES_DIRECTORY_NAME;
-module.exports.RESOURCES_DIRECTORY_NAME = RESOURCES_DIRECTORY_NAME;
+module.exports.HTML_PAGES_DIRECTORY_PATH = HTML_PAGES_DIRECTORY_PATH;
+module.exports.RESOURCES_DIRECTORY_PATH = RESOURCES_DIRECTORY_PATH;
 
 module.exports.HTML_MIME_TYPE = HTML_MIME_TYPE;
 module.exports.CSS_MIME_TYPE = CSS_MIME_TYPE;
