@@ -1,0 +1,17 @@
+{
+  "name": "web_futuristics_agency_site",
+  "version": "0.0.1",
+  "description": "Agency main site",
+  "main": "index.html",
+  "author": "Sergei Selihov",
+  "license": "proprietary",
+  "scripts": {
+    "start_server": "node ./src_server/server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8",
+    "gulp-sass": "^3.1.0"
+  }
+}
