@@ -1,6 +1,6 @@
 "use strict";
 
-const SERVER_PORT = 9023;
+const SERVER_PORT = 9024;
 
 const HTML_PAGES_DIRECTORY_NAME = './../public/pages';
 const RESOURCES_DIRECTORY_NAME = './../public/resources';
