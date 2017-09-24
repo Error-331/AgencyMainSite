@@ -205,7 +205,7 @@ body {
 
           flex-grow: 0;
           flex-shrink: 1;
-          flex-basis: 50%;
+          flex-basis: auto;
 
           .assignmentsRowContainer {
             box-sizing: border-box;
@@ -327,6 +327,36 @@ body {
   }
 }
 
+@mixin widthGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  width: calc(#{$m} * 100vw + #{$b});
+}
+
+@mixin flexBasisGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  flex-basis: calc(#{$m} * 100vw + #{$b});
+}
+
+@mixin fontSizeGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  font-size: calc(#{$m} * 100vw + #{$b});
+}
+
 $footerContainerMinWidth1: 0px;
 $footerContainerMinWidth2: 320px;
 $footerContainerMinWidth3: 650px;
@@ -339,25 +369,6 @@ $footerContainerFlexBasis3: 370px;
 $footerContainerFlexBasis4: 430px;
 $footerContainerFlexBasis5: 460px;
 
-$footerContainerFlexBasisDelta1: $footerContainerFlexBasis2 - $footerContainerFlexBasis1;
-$footerContainerMinWidthDelta1:  $footerContainerMinWidth2 - $footerContainerMinWidth1;
-$footerContainerMinWidthM1: $footerContainerFlexBasisDelta1 / $footerContainerMinWidthDelta1;
-$footerContainerMinWidthB1: $footerContainerFlexBasis1 - $footerContainerMinWidthM1 * $footerContainerMinWidth1;
-
-$footerContainerFlexBasisDelta2: $footerContainerFlexBasis3 - $footerContainerFlexBasis2;
-$footerContainerMinWidthDelta2:  $footerContainerMinWidth3 - $footerContainerMinWidth2;
-$footerContainerMinWidthM2: $footerContainerFlexBasisDelta2 / $footerContainerMinWidthDelta2;
-$footerContainerMinWidthB2: $footerContainerFlexBasis2 - $footerContainerMinWidthM2 * $footerContainerMinWidth2;
-
-$footerContainerFlexBasisDelta3: $footerContainerFlexBasis4 - $footerContainerFlexBasis3;
-$footerContainerMinWidthDelta3:  $footerContainerMinWidth4 - $footerContainerMinWidth3;
-$footerContainerMinWidthM3: $footerContainerFlexBasisDelta3 / $footerContainerMinWidthDelta3;
-$footerContainerMinWidthB3: $footerContainerFlexBasis3 - $footerContainerMinWidthM3 * $footerContainerMinWidth3;
-
-$footerContainerFlexBasisDelta4: $footerContainerFlexBasis5 - $footerContainerFlexBasis4;
-$footerContainerMinWidthDelta4:  $footerContainerMinWidth5 - $footerContainerMinWidth4;
-$footerContainerMinWidthM4: $footerContainerFlexBasisDelta4 / $footerContainerMinWidthDelta4;
-$footerContainerMinWidthB4: $footerContainerFlexBasis4 - $footerContainerMinWidthM4 * $footerContainerMinWidth4;
 
 //////
 
@@ -377,26 +388,6 @@ $textContainerH1FontSize3: 35px;
 $textContainerH1FontSize4: 40px;
 $textContainerH1FontSize5: 48px;
 
-$textContainerH1FontSizeDelta1: $textContainerH1FontSize2 - $textContainerH1FontSize1;
-$textContainerMinWidthDelta1: $textContainerMinWidth2 - $textContainerMinWidth1;
-$textContainerFlexBasisH1M1: $textContainerH1FontSizeDelta1 / $textContainerMinWidthDelta1;
-$textContainerFlexBasisH1B1: $textContainerH1FontSize1 - $textContainerFlexBasisH1M1 * $textContainerMinWidth1;
-
-$textContainerH1FontSizeDelta2: $textContainerH1FontSize3 - $textContainerH1FontSize2;
-$textContainerMinWidthDelta2: $textContainerMinWidth3 - $textContainerMinWidth2;
-$textContainerFlexBasisH1M2: $textContainerH1FontSizeDelta2 / $textContainerMinWidthDelta2;
-$textContainerFlexBasisH1B2: $textContainerH1FontSize2 - $textContainerFlexBasisH1M2 * $textContainerMinWidth2;
-
-$textContainerH1FontSizeDelta3: $textContainerH1FontSize4 - $textContainerH1FontSize3;
-$textContainerMinWidthDelta3: $textContainerMinWidth4 - $textContainerMinWidth3;
-$textContainerFlexBasisH1M3: $textContainerH1FontSizeDelta3 / $textContainerMinWidthDelta3;
-$textContainerFlexBasisH1B3: $textContainerH1FontSize3 - $textContainerFlexBasisH1M3 * $textContainerMinWidth3;
-
-$textContainerH1FontSizeDelta4: $textContainerH1FontSize5 - $textContainerH1FontSize4;
-$textContainerMinWidthDelta4: $textContainerMinWidth5 - $textContainerMinWidth4;
-$textContainerFlexBasisH1M4: $textContainerH1FontSizeDelta4 / $textContainerMinWidthDelta4;
-$textContainerFlexBasisH1B4: $textContainerH1FontSize4 - $textContainerFlexBasisH1M4 * $textContainerMinWidth4;
-
 //
 
 $textContainerDescriptionFontSize1: 0px;
@@ -405,36 +396,11 @@ $textContainerDescriptionFontSize3: 16px;
 $textContainerDescriptionFontSize4: 20px;
 $textContainerDescriptionFontSize5: 24px;
 
-$textContainerDescriptionFontSizeDelta1: $textContainerDescriptionFontSize2 - $textContainerDescriptionFontSize1;
-$textContainerDescriptionFontSizeM1: $textContainerDescriptionFontSizeDelta1 / $textContainerMinWidthDelta1;
-$textContainerDescriptionFontSizeB1: $textContainerDescriptionFontSize1 - $textContainerDescriptionFontSizeM1 * $textContainerMinWidth1;
-
-$textContainerDescriptionFontSizeDelta2: $textContainerDescriptionFontSize3 - $textContainerDescriptionFontSize2;
-$textContainerDescriptionFontSizeM2: $textContainerDescriptionFontSizeDelta2 / $textContainerMinWidthDelta2;
-$textContainerDescriptionFontSizeB2: $textContainerDescriptionFontSize2 - $textContainerDescriptionFontSizeM2 * $textContainerMinWidth2;
-
-$textContainerDescriptionFontSizeDelta3: $textContainerDescriptionFontSize4 - $textContainerDescriptionFontSize3;
-$textContainerDescriptionFontSizeM3: $textContainerDescriptionFontSizeDelta3 / $textContainerMinWidthDelta3;
-$textContainerDescriptionFontSizeB3: $textContainerDescriptionFontSize3 - $textContainerDescriptionFontSizeM3 * $textContainerMinWidth3;
-
-$textContainerDescriptionFontSizeDelta4: $textContainerDescriptionFontSize5 - $textContainerDescriptionFontSize4;
-$textContainerDescriptionFontSizeM4: $textContainerDescriptionFontSizeDelta4 / $textContainerMinWidthDelta4;
-$textContainerDescriptionFontSizeB4: $textContainerDescriptionFontSize4 - $textContainerDescriptionFontSizeM4 * $textContainerMinWidth4;
-
-
 ///
 
 $descriptionContainerWidth1: 400px;
 $descriptionContainerWidth2: 620px;
 $descriptionContainerWidth3: 780px;
-
-$descriptionContainerWidthDelta1: $descriptionContainerWidth2 - $descriptionContainerWidth1;
-$descriptionContainerWidthM1: $descriptionContainerWidthDelta1 / $textContainerMinWidthDelta2;
-$descriptionContainerWidthB1: $descriptionContainerWidth1 - $descriptionContainerWidthM1 * $textContainerMinWidth2;
-
-$descriptionContainerWidthDelta2: $descriptionContainerWidth3 - $descriptionContainerWidth2;
-$descriptionContainerWidthM2: $descriptionContainerWidthDelta2 / $textContainerMinWidthDelta3;
-$descriptionContainerWidthB2: $descriptionContainerWidth2 - $descriptionContainerWidthM2 * $textContainerMinWidth3;
 
 ////
 
@@ -444,21 +410,6 @@ $textContainerH2FontSize3: 29px;
 $textContainerH2FontSize4: 34px;
 $textContainerH2FontSize5: 42px;
 
-$textContainerH2FontSizeDelta1: $textContainerH2FontSize2 - $textContainerH2FontSize1;
-$textContainerFlexBasisH2M1: $textContainerH2FontSizeDelta1 / $textContainerMinWidthDelta1;
-$textContainerFlexBasisH2B1: $textContainerH2FontSize1 - $textContainerFlexBasisH2M1 * $textContainerMinWidth1;
-
-$textContainerH2FontSizeDelta2: $textContainerH2FontSize3 - $textContainerH2FontSize2;
-$textContainerFlexBasisH2M2: $textContainerH2FontSizeDelta2 / $textContainerMinWidthDelta2;
-$textContainerFlexBasisH2B2: $textContainerH2FontSize2 - $textContainerFlexBasisH2M2 * $textContainerMinWidth2;
-
-$textContainerH2FontSizeDelta3: $textContainerH2FontSize4 - $textContainerH2FontSize3;
-$textContainerFlexBasisH2M3: $textContainerH2FontSizeDelta3 / $textContainerMinWidthDelta3;
-$textContainerFlexBasisH2B3: $textContainerH2FontSize3 - $textContainerFlexBasisH2M3 * $textContainerMinWidth3;
-
-$textContainerH2FontSizeDelta4: $textContainerH2FontSize5 - $textContainerH2FontSize4;
-$textContainerFlexBasisH2M4: $textContainerH2FontSizeDelta4 / $textContainerMinWidthDelta4;
-$textContainerFlexBasisH2B4: $textContainerH2FontSize4 - $textContainerFlexBasisH2M4 * $textContainerMinWidth4;
 
 //
 
@@ -468,22 +419,6 @@ $assignmentsDescriptionFontSize3: 18px;
 $assignmentsDescriptionFontSize4: 20px;
 $assignmentsDescriptionFontSize5: 24px;
 
-$assignmentsDescriptionFontSizeDelta1: $assignmentsDescriptionFontSize2 - $assignmentsDescriptionFontSize1;
-$assignmentsDescriptionFontSizeM1: $assignmentsDescriptionFontSizeDelta1 / $textContainerMinWidthDelta1;
-$assignmentsDescriptionFontSizeB1: $assignmentsDescriptionFontSize1 - $assignmentsDescriptionFontSizeM1 * $textContainerMinWidth1;
-
-$assignmentsDescriptionFontSizeDelta2: $assignmentsDescriptionFontSize3 - $assignmentsDescriptionFontSize2;
-$assignmentsDescriptionFontSizeM2: $assignmentsDescriptionFontSizeDelta2 / $textContainerMinWidthDelta2;
-$assignmentsDescriptionFontSizeB2: $assignmentsDescriptionFontSize2 - $assignmentsDescriptionFontSizeM2 * $textContainerMinWidth2;
-
-$assignmentsDescriptionFontSizeDelta3: $assignmentsDescriptionFontSize4 - $assignmentsDescriptionFontSize3;
-$assignmentsDescriptionFontSizeM3: $assignmentsDescriptionFontSizeDelta3 / $textContainerMinWidthDelta3;
-$assignmentsDescriptionFontSizeB3: $assignmentsDescriptionFontSize3 - $assignmentsDescriptionFontSizeM3 * $textContainerMinWidth3;
-
-$assignmentsDescriptionFontSizeDelta4: $assignmentsDescriptionFontSize5 - $assignmentsDescriptionFontSize4;
-$assignmentsDescriptionFontSizeM4: $assignmentsDescriptionFontSizeDelta4 / $textContainerMinWidthDelta4;
-$assignmentsDescriptionFontSizeB4: $assignmentsDescriptionFontSize4 - $assignmentsDescriptionFontSizeM4 * $textContainerMinWidth4;
-
 //
 
 $assignmentsImageWidth1: 0px;
@@ -491,22 +426,6 @@ $assignmentsImageWidth2: 45px;
 $assignmentsImageWidth3: 50px;
 $assignmentsImageWidth4: 65px;
 $assignmentsImageWidth5: 65px;
-
-$assignmentsImageWidthDelta1: $assignmentsImageWidth2 - $assignmentsImageWidth1;
-$assignmentsImageWidthM1: $assignmentsImageWidthDelta1 / $textContainerMinWidthDelta1;
-$assignmentsImageWidthB1: $assignmentsImageWidth1 - $assignmentsImageWidthM1 * $textContainerMinWidth1;
-
-$assignmentsImageWidthDelta2: $assignmentsImageWidth3 - $assignmentsImageWidth2;
-$assignmentsImageWidthM2: $assignmentsImageWidthDelta2 / $textContainerMinWidthDelta2;
-$assignmentsImageWidthB2: $assignmentsImageWidth2 - $assignmentsImageWidthM2 * $textContainerMinWidth2;
-
-$assignmentsImageWidthDelta3: $assignmentsImageWidth4 - $assignmentsImageWidth3;
-$assignmentsImageWidthM3: $assignmentsImageWidthDelta3 / $textContainerMinWidthDelta3;
-$assignmentsImageWidthB3: $assignmentsImageWidth3 - $assignmentsImageWidthM3 * $textContainerMinWidth3;
-
-$assignmentsImageWidthDelta4: $assignmentsImageWidth5 - $assignmentsImageWidth4;
-$assignmentsImageWidthM4: $assignmentsImageWidthDelta4 / $textContainerMinWidthDelta4;
-$assignmentsImageWidthB4: $assignmentsImageWidth4 - $assignmentsImageWidthM4 * $textContainerMinWidth4;
 
 //
 
@@ -516,64 +435,49 @@ $technologyLogoWidth3: 100px;
 $technologyLogoWidth4: 130px;
 $technologyLogoWidth5: 170px;
 
-$technologyLogoWidthDelta1: $technologyLogoWidth2 - $technologyLogoWidth1;
-$technologyLogoWidthM1: $technologyLogoWidthDelta1 / $textContainerMinWidthDelta1;
-$technologyLogoWidthB1: $technologyLogoWidth1 - $technologyLogoWidthM1 * $textContainerMinWidth1;
-
-$technologyLogoWidthDelta2: $technologyLogoWidth3 - $technologyLogoWidth2;
-$technologyLogoWidthM2: $technologyLogoWidthDelta2 / $textContainerMinWidthDelta2;
-$technologyLogoWidthB2: $technologyLogoWidth2 - $technologyLogoWidthM2 * $textContainerMinWidth2;
-
-$technologyLogoWidthDelta3: $technologyLogoWidth4 - $technologyLogoWidth3;
-$technologyLogoWidthM3: $technologyLogoWidthDelta3 / $textContainerMinWidthDelta3;
-$technologyLogoWidthB3: $technologyLogoWidth3 - $technologyLogoWidthM3 * $textContainerMinWidth3;
-
-$technologyLogoWidthDelta4: $technologyLogoWidth5 - $technologyLogoWidth4;
-$technologyLogoWidthM4: $technologyLogoWidthDelta4 / $textContainerMinWidthDelta4;
-$technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textContainerMinWidth4;
-
 @media only screen and (min-width: $footerContainerMinWidth1) {
   .mainContainerOuter {
     >.mainContainerInner {
       >.introContainer {
         >.textContainer {
           >h1 {
-            font-size: calc(#{$textContainerFlexBasisH1M1} * 100vw + #{$textContainerFlexBasisH1B1});
+            @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH1FontSize1, $textContainerH1FontSize2);
           }
 
           >.descriptionContainer {
             width: 90%;
-            font-size: calc(#{$textContainerDescriptionFontSizeM1} * 100vw + #{$textContainerDescriptionFontSizeB1});
+            @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerDescriptionFontSize1, $textContainerDescriptionFontSize2);
           }
 
           >.buttonsContainer {
             >.button {
-              font-size: calc(#{$textContainerDescriptionFontSizeM1} * 100vw + #{$textContainerDescriptionFontSizeB1});
+              @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerDescriptionFontSize1, $textContainerDescriptionFontSize2);
             }
           }
         }
 
         >.footerContainer {
-          flex-basis: calc(#{$footerContainerMinWidthM1} * 100vw + #{$footerContainerMinWidthB1});
+          @include flexBasisGatewayCalc($footerContainerMinWidth1, $footerContainerMinWidth2, $footerContainerFlexBasis1, $footerContainerFlexBasis2);
         }
       }
 
       >.assignmentsContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M1} * 100vw + #{$textContainerFlexBasisH2B1});
+          @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
         }
 
         >.assignmentsColumnsContainer {
           .assignmentsColumnContainer {
+            width: 50%;
             .assignmentsRowContainer {
               .assignmentsIconContainer {
                 >img {
-                  width: calc(#{$assignmentsImageWidthM1} * 100vw + #{$assignmentsImageWidthB1});
+                  @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $assignmentsImageWidth1, $assignmentsImageWidth2);
                 }
               }
 
               .assignmentsDescriptionContainer {
-                font-size: calc(#{$assignmentsDescriptionFontSizeM1} * 100vw + #{$assignmentsDescriptionFontSizeB1});
+                @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $assignmentsDescriptionFontSize1, $assignmentsDescriptionFontSize2);
               }
             }
           }
@@ -583,90 +487,17 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
 
       >.technologyStackContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M1} * 100vw + #{$textContainerFlexBasisH2B1});
+          @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
         }
 
         >.technologiesLogosContainer {
           >.technologyLogoContainer {
             >img {
-              width: calc(#{$technologyLogoWidthM1} * 100vw + #{$technologyLogoWidthB1});
+              @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $technologyLogoWidth1, $technologyLogoWidth2);
             }
           }
         }
       }
-
-
-
-
-
-
-
-    }
-  }
-}
-
-
-@media only screen and (min-width: $textContainerMinWidth2) {
-  .mainContainerOuter {
-    >.mainContainerInner {
-      >.introContainer {
-        >.textContainer {
-          >h1 {
-            font-size: calc(#{$textContainerFlexBasisH1M2} * 100vw + #{$textContainerFlexBasisH1B2});
-          }
-
-          >.descriptionContainer {
-            width: calc(#{$descriptionContainerWidthM1} * 100vw + #{$descriptionContainerWidthB1});
-            font-size: calc(#{$textContainerDescriptionFontSizeM2} * 100vw + #{$textContainerDescriptionFontSizeB2});
-          }
-
-          >.buttonsContainer {
-            >.button {
-              font-size: calc(#{$textContainerDescriptionFontSizeM2} * 100vw + #{$textContainerDescriptionFontSizeB2});
-            }
-          }
-        }
-      }
-
-      >.assignmentsContainer {
-        >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M2} * 100vw + #{$textContainerFlexBasisH2B2});
-        }
-
-        >.assignmentsColumnsContainer {
-          .assignmentsColumnContainer {
-            .assignmentsRowContainer {
-              .assignmentsIconContainer {
-                >img {
-                  width: calc(#{$assignmentsImageWidthM2} * 100vw + #{$assignmentsImageWidthB2});
-                }
-              }
-
-              .assignmentsDescriptionContainer {
-                font-size: calc(#{$assignmentsDescriptionFontSizeM2} * 100vw + #{$assignmentsDescriptionFontSizeB2});
-              }
-            }
-          }
-        }
-      }
-
-      >.technologyStackContainer {
-        >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M2} * 100vw + #{$textContainerFlexBasisH2B2});
-        }
-
-        >.technologiesLogosContainer {
-          >.technologyLogoContainer {
-            >img {
-              width: calc(#{$technologyLogoWidthM2} * 100vw + #{$technologyLogoWidthB2});
-            }
-          }
-        }
-      }
-
-
-
-
     }
   }
 }
@@ -676,9 +507,72 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
     >.mainContainerInner {
       >.introContainer {
         >.footerContainer {
-          flex-basis: calc(#{$footerContainerMinWidthM2} * 100vw + #{$footerContainerMinWidthB2});
+          @include flexBasisGatewayCalc($footerContainerMinWidth2, $footerContainerMinWidth3, $footerContainerFlexBasis2, $footerContainerFlexBasis3);
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: $textContainerMinWidth2) {
+  .mainContainerOuter {
+    >.mainContainerInner {
+      >.introContainer {
+        >.textContainer {
+          >h1 {
+            @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH1FontSize2, $textContainerH1FontSize3);
+          }
+
+          >.descriptionContainer {
+            @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $descriptionContainerWidth1, $descriptionContainerWidth2);
+            @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerDescriptionFontSize2, $textContainerDescriptionFontSize3);
+          }
+
+          >.buttonsContainer {
+            >.button {
+              @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerDescriptionFontSize2, $textContainerDescriptionFontSize3);
+            }
+          }
+        }
+      }
+
+      >.assignmentsContainer {
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH2FontSize2, $textContainerH2FontSize3);
+        }
+
+        >.assignmentsColumnsContainer {
+          .assignmentsColumnContainer {
+            width: 50%;
+            .assignmentsRowContainer {
+              .assignmentsIconContainer {
+                >img {
+                  @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $assignmentsImageWidth2, $assignmentsImageWidth3);
+                }
+              }
+
+              .assignmentsDescriptionContainer {
+                @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $assignmentsDescriptionFontSize2, $assignmentsDescriptionFontSize3);
+              }
+            }
+          }
+        }
+      }
+
+      >.technologyStackContainer {
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH2FontSize2, $textContainerH2FontSize3);
+        }
+
+        >.technologiesLogosContainer {
+          >.technologyLogoContainer {
+            >img {
+              @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $technologyLogoWidth2, $technologyLogoWidth3);
+            }
+          }
+        }
+      }
+
     }
   }
 }
@@ -689,29 +583,29 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
       >.introContainer {
         >.textContainer {
           >h1 {
-            font-size: calc(#{$textContainerFlexBasisH1M3} * 100vw + #{$textContainerFlexBasisH1B3});
+            @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH1FontSize3, $textContainerH1FontSize4);
           }
 
           >.descriptionContainer {
-            width: calc(#{$descriptionContainerWidthM2} * 100vw + #{$descriptionContainerWidthB2});
-            font-size: calc(#{$textContainerDescriptionFontSizeM3} * 100vw + #{$textContainerDescriptionFontSizeB3});
+            @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $descriptionContainerWidth2, $descriptionContainerWidth3);
+            @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerDescriptionFontSize3, $textContainerDescriptionFontSize4);
           }
 
           >.buttonsContainer {
             >.button {
-              font-size: calc(#{$textContainerDescriptionFontSizeM3} * 100vw + #{$textContainerDescriptionFontSizeB3});
+              @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerDescriptionFontSize3, $textContainerDescriptionFontSize4);
             }
           }
         }
 
         >.footerContainer {
-          flex-basis: calc(#{$footerContainerMinWidthM3} * 100vw + #{$footerContainerMinWidthB3});
+          @include flexBasisGatewayCalc($footerContainerMinWidth3, $footerContainerMinWidth4, $footerContainerFlexBasis3, $footerContainerFlexBasis4);
         }
       }
 
       >.assignmentsContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M3} * 100vw + #{$textContainerFlexBasisH2B3});
+          @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH2FontSize3, $textContainerH2FontSize4);
         }
 
         >.assignmentsColumnsContainer {
@@ -719,12 +613,12 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
             .assignmentsRowContainer {
               .assignmentsIconContainer {
                 >img {
-                  width: calc(#{$assignmentsImageWidthM3} * 100vw + #{$assignmentsImageWidthB3});
+                  @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $assignmentsImageWidth3, $assignmentsImageWidth4);
                 }
               }
 
               .assignmentsDescriptionContainer {
-                font-size: calc(#{$assignmentsDescriptionFontSizeM3} * 100vw + #{$assignmentsDescriptionFontSizeB3});
+                @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $assignmentsDescriptionFontSize3, $assignmentsDescriptionFontSize4);
               }
             }
           }
@@ -733,13 +627,13 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
 
       >.technologyStackContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M3} * 100vw + #{$textContainerFlexBasisH2B3});
+          @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH2FontSize3, $textContainerH2FontSize4);
         }
 
         >.technologiesLogosContainer {
           >.technologyLogoContainer {
             >img {
-              width: calc(#{$technologyLogoWidthM3} * 100vw + #{$technologyLogoWidthB3});
+              @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $technologyLogoWidth3, $technologyLogoWidth4);
             }
           }
         }
@@ -756,43 +650,44 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
           flex-grow: 1;
 
           >h1 {
-            font-size: calc(#{$textContainerFlexBasisH1M4} * 100vw + #{$textContainerFlexBasisH1B4});
+            @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH1FontSize4, $textContainerH1FontSize5);
           }
 
           >.descriptionContainer {
             width: 780px;
-            font-size: calc(#{$textContainerDescriptionFontSizeM4} * 100vw + #{$textContainerDescriptionFontSizeB4});
+            @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerDescriptionFontSize4, $textContainerDescriptionFontSize5);
           }
 
           >.buttonsContainer {
             >.button {
-              font-size: calc(#{$textContainerDescriptionFontSizeM4} * 100vw + #{$textContainerDescriptionFontSizeB4});
+              @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerDescriptionFontSize4, $textContainerDescriptionFontSize5);
             }
           }
         }
 
         >.footerContainer {
-          flex-basis: calc(#{$footerContainerMinWidthM4} * 100vw + #{$footerContainerMinWidthB4});
+          @include flexBasisGatewayCalc($footerContainerMinWidth4, $footerContainerMinWidth5, $footerContainerFlexBasis4, $footerContainerFlexBasis5);
         }
       }
 
       >.assignmentsContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M4} * 100vw + #{$textContainerFlexBasisH2B4});
+          @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
         }
 
         >.assignmentsColumnsContainer {
           .assignmentsColumnContainer {
             flex-basis: auto;
+
             .assignmentsRowContainer {
               .assignmentsIconContainer {
                 >img {
-                  width: calc(#{$assignmentsImageWidthM4} * 100vw + #{$assignmentsImageWidthB4});
+                  @include widthGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $assignmentsImageWidth4, $assignmentsImageWidth5);
                 }
               }
 
               .assignmentsDescriptionContainer {
-                font-size: calc(#{$assignmentsDescriptionFontSizeM4} * 100vw + #{$assignmentsDescriptionFontSizeB4});
+                @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $assignmentsDescriptionFontSize4, $assignmentsDescriptionFontSize5);
               }
             }
           }
@@ -802,13 +697,13 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
 
       >.technologyStackContainer {
         >h2 {
-          font-size: calc(#{$textContainerFlexBasisH2M4} * 100vw + #{$textContainerFlexBasisH2B4});
+          @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
         }
 
         >.technologiesLogosContainer {
           >.technologyLogoContainer {
             >img {
-              width: calc(#{$technologyLogoWidthM4} * 100vw + #{$technologyLogoWidthB4});
+              @include widthGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $technologyLogoWidth4, $technologyLogoWidth5);
             }
           }
         }
@@ -854,6 +749,8 @@ $technologyLogoWidthB4: $technologyLogoWidth4 - $technologyLogoWidthM4 * $textCo
 
         >.assignmentsColumnsContainer {
           .assignmentsColumnContainer {
+            flex-basis: 477px;
+
             .assignmentsRowContainer {
               .assignmentsIconContainer {
                 >img {
