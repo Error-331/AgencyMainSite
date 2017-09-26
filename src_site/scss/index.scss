@@ -109,6 +109,7 @@ body {
             text-align: center;
             text-transform: uppercase;
             text-decoration: none;
+            font-weight: bold;
 
             color: #525d7d;
             background-color: white;
@@ -277,6 +278,7 @@ body {
 
         text-transform: uppercase;
         text-align: center;
+
         color: #525d7d;
       }
 
@@ -320,6 +322,148 @@ body {
           padding-left: 5px;
 
           >img {
+          }
+        }
+      }
+    }
+
+    >.contactFormContainer {
+      box-sizing: border-box;
+
+      display: flex;
+      position: relative;
+
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+
+      align-items: center;
+      align-content: flex-start;
+
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+
+      margin-bottom: 20px;
+
+      >h2 {
+        box-sizing: border-box;
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+
+        padding-left: 5px;
+        padding-right: 5px;
+
+        text-transform: uppercase;
+        text-align: center;
+
+        color: #525d7d;
+      }
+
+      >form {
+        box-sizing: border-box;
+
+        display: flex;
+        position: relative;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        align-items: flex-start;
+        align-content: flex-start;
+
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+
+        .contactFormRow {
+          box-sizing: border-box;
+
+          display: flex;
+          position: relative;
+
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+
+          align-items: center;
+          align-content: flex-start;
+
+          flex-grow: 0;
+          flex-shrink: 1;
+          flex-basis: auto;
+
+          padding-left: 15px;
+          padding-right: 15px;
+
+          padding-bottom: 15px;
+
+          >.inputLabelContainer {
+            box-sizing: border-box;
+
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+
+            padding-right: 15px;
+
+            color: #525d7d;
+          }
+
+          >.inputContainer {
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 50%;
+
+            >input, textarea {
+              box-sizing: border-box;
+
+              border: 2px solid #525d7d;
+              padding: 3px;
+
+              font-weight: bold;
+              color: #525d7d;
+            }
+
+            >textarea {
+              resize: none;
+            }
+          }
+        }
+
+        .contactFormRow:nth-child(3) {
+          padding-bottom: 8px;
+        }
+
+        .contactFormRow:last-child {
+          justify-content: flex-end;
+
+          >input {
+            background-color: white;
+            border: 0px none;
+          }
+
+          >.button {
+            box-sizing: border-box;
+            display: block;
+
+            border: 2px solid #525d7d;
+            padding: 5px 20px 5px 20px;
+
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+
+            color: #525d7d;
+            background-color: white;
+          }
+
+          >.primaryButton {
+            background-color: #525d7d;
+            color: white;
           }
         }
       }
@@ -435,6 +579,29 @@ $technologyLogoWidth3: 100px;
 $technologyLogoWidth4: 130px;
 $technologyLogoWidth5: 170px;
 
+//
+
+$contactFormLabelWidth1: 0px;
+$contactFormLabelWidth2: 71px;
+$contactFormLabelWidth3: 80px;
+$contactFormLabelWidth4: 95px;
+$contactFormLabelWidth5: 102px;
+
+//
+
+$contactFormLabelFontSize1: 0px;
+$contactFormLabelFontSize2: 14px;
+$contactFormLabelFontSize3: 16px;
+$contactFormLabelFontSize4: 20px;
+$contactFormLabelFontSize5: 22px;
+
+//
+$contactFormButtonFontSize1: 0px;
+$contactFormButtonFontSize2: 12px;
+$contactFormButtonFontSize3: 14px;
+$contactFormButtonFontSize4: 16px;
+$contactFormButtonFontSize5: 18px;
+
 @media only screen and (min-width: $footerContainerMinWidth1) {
   .mainContainerOuter {
     >.mainContainerInner {
@@ -469,6 +636,7 @@ $technologyLogoWidth5: 170px;
         >.assignmentsColumnsContainer {
           .assignmentsColumnContainer {
             width: 50%;
+
             .assignmentsRowContainer {
               .assignmentsIconContainer {
                 >img {
@@ -484,7 +652,6 @@ $technologyLogoWidth5: 170px;
         }
       }
 
-
       >.technologyStackContainer {
         >h2 {
           @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
@@ -494,6 +661,51 @@ $technologyLogoWidth5: 170px;
           >.technologyLogoContainer {
             >img {
               @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $technologyLogoWidth1, $technologyLogoWidth2);
+            }
+          }
+        }
+      }
+
+      >.contactFormContainer {
+        align-items: stretch;
+
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
+        }
+
+        >form {
+          align-items: stretch;
+
+          .contactFormRow {
+            flex-direction: column;
+            align-items: stretch;
+
+            >.inputLabelContainer {
+              @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $contactFormLabelWidth1, $contactFormLabelWidth2);
+              @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $contactFormLabelFontSize1, $contactFormLabelFontSize2);
+            }
+
+            >.inputContainer {
+              >input, textarea {
+                width: 100%;
+
+                @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $contactFormLabelFontSize1, $contactFormLabelFontSize2);
+              }
+
+              >textarea {
+              }
+            }
+          }
+
+          .contactFormRow:last-child {
+            .button {
+              margin-bottom: 5px;
+
+              @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $contactFormButtonFontSize1, $contactFormButtonFontSize2);
+            }
+
+            .button:first-child {
+              margin-right: 0px;
             }
           }
         }
@@ -573,6 +785,35 @@ $technologyLogoWidth5: 170px;
         }
       }
 
+      >.contactFormContainer {
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH2FontSize2, $textContainerH2FontSize3);
+        }
+
+        >form {
+          .contactFormRow {
+            >.inputLabelContainer {
+              @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $contactFormLabelWidth2, $contactFormLabelWidth3);
+              @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $contactFormLabelFontSize2, $contactFormLabelFontSize3);
+            }
+
+            >.inputContainer {
+              >input, textarea {
+                @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $contactFormLabelFontSize2, $contactFormLabelFontSize3);
+              }
+
+              >textarea {
+              }
+            }
+          }
+
+          .contactFormRow:last-child {
+            .button {
+              @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $contactFormButtonFontSize2, $contactFormButtonFontSize3);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -638,6 +879,58 @@ $technologyLogoWidth5: 170px;
           }
         }
       }
+
+      >.contactFormContainer {
+        align-items: center;
+
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH2FontSize3, $textContainerH2FontSize4);
+        }
+
+        >form {
+          align-items: stretch;
+
+          .contactFormRow {
+            flex-direction: row;
+            align-items: center;
+
+            >.inputLabelContainer {
+              @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $contactFormLabelWidth3, $contactFormLabelWidth4);
+              @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $contactFormLabelFontSize3, $contactFormLabelFontSize4);
+            }
+
+            >.inputContainer {
+              >input, textarea {
+                @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $contactFormLabelFontSize3, $contactFormLabelFontSize4);
+              }
+
+              >input {
+                width: 100%;
+              }
+
+              >textarea {
+                width: 500px;
+              }
+            }
+          }
+
+          .contactFormRow:nth-child(3) {
+            align-items: flex-start;
+          }
+
+          .contactFormRow:last-child {
+            .button {
+              margin-bottom: 0px;
+
+              @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $contactFormButtonFontSize3, $contactFormButtonFontSize4);
+            }
+
+            .button:first-child {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -694,7 +987,6 @@ $technologyLogoWidth5: 170px;
         }
       }
 
-
       >.technologyStackContainer {
         >h2 {
           @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
@@ -709,6 +1001,36 @@ $technologyLogoWidth5: 170px;
         }
       }
 
+      >.contactFormContainer {
+        >h2 {
+          @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
+        }
+
+        >form {
+          .contactFormRow {
+            >.inputLabelContainer {
+              @include widthGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $contactFormLabelWidth4, $contactFormLabelWidth5);
+              @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $contactFormLabelFontSize4, $contactFormLabelFontSize5);
+            }
+
+            >.inputContainer {
+              >input, textarea {
+                @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $contactFormLabelFontSize4, $contactFormLabelFontSize5);
+              }
+
+              >textarea {
+                width: 550px;
+              }
+            }
+          }
+
+          .contactFormRow:last-child {
+            .button {
+              @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $contactFormButtonFontSize4, $contactFormButtonFontSize5);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -775,6 +1097,40 @@ $technologyLogoWidth5: 170px;
           >.technologyLogoContainer {
             >img {
               width: $technologyLogoWidth5;
+            }
+          }
+        }
+      }
+
+      >.contactFormContainer {
+        >h2 {
+          font-size: $textContainerH2FontSize5;
+        }
+
+        >form {
+          .contactFormRow {
+            >.inputLabelContainer {
+              width: 102px;
+              font-size: 22px;
+            }
+
+            >.inputContainer {
+              >input, textarea {
+                font-size: 22px;
+              }
+
+              >input {
+              }
+
+              >textarea {
+                width: 650px;
+              }
+            }
+          }
+
+          .contactFormRow:last-child {
+            .button {
+              font-size: $contactFormButtonFontSize5;
             }
           }
         }

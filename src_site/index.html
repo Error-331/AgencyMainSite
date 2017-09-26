@@ -32,11 +32,11 @@
                     </div>
 
                     <div class="buttonsContainer">
-                        <a class="button primaryButton" href="#">
+                        <a class="button primaryButton" href="#contact_container">
                             Get quote
                         </a>
 
-                        <a class="button" href="#assignments">
+                        <a class="button" href="#assignments_container">
                             Learn more
                         </a>
                     </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="assignmentsContainer" id="assignments">
+            <div class="assignmentsContainer" id="assignments_container">
                 <h2>what we do</h2>
 
                 <div class="assignmentsColumnsContainer">
@@ -201,6 +201,47 @@
                     </div>
 
                 </div>
+            </div>
+
+            <div class="contactFormContainer" id="contact_container">
+                <h2>Send inquiry</h2>
+
+                <form action="/get/quote" method="POST" class="contactForm" id="get_quote_form">
+                    <div class="contactFormRow">
+                        <div class="inputLabelContainer">
+                            Name
+                        </div>
+
+                        <div class="inputContainer">
+                            <input type="text" name="name" value=""/>
+                        </div>
+                    </div>
+
+                    <div class="contactFormRow">
+                        <div class="inputLabelContainer">
+                            Email
+                        </div>
+
+                        <div class="inputContainer">
+                            <input type="email" name="email" value=""/>
+                        </div>
+                    </div>
+
+                    <div class="contactFormRow">
+                        <div class="inputLabelContainer">
+                            Message
+                        </div>
+
+                        <div class="inputContainer">
+                            <textarea name="message" class="" cols="45" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="contactFormRow">
+                        <input type="submit" value="Submit" class="button primaryButton">
+                        <input type="reset" value="Reset" class="button">
+                    </div>
+                </form>
             </div>
 
         </div>
