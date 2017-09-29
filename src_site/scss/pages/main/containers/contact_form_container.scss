@@ -230,7 +230,9 @@
         display: block;
 
         border: 2px solid $mainDarkColor;
-        padding: 5px 20px 5px 20px;
+
+        padding-left: 20px;
+        padding-right: 20px;
 
         text-align: center;
         text-transform: uppercase;
@@ -243,6 +245,9 @@
         @media only screen and (min-width: $footerContainerMinWidth1) {
           margin-bottom: 5px;
 
+          padding-top: 8px;
+          padding-bottom: 8px;
+
           @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $contactFormButtonFontSize1, $contactFormButtonFontSize2);
         }
 
@@ -252,6 +257,9 @@
 
         @media only screen and (min-width: $footerContainerMinWidth3) {
           margin-bottom: 0px;
+
+          padding-top: 5px;
+          padding-bottom: 5px;
 
           @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $contactFormButtonFontSize3, $contactFormButtonFontSize4);
         }

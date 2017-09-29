@@ -5,19 +5,19 @@ $footerContainerMinWidth3: 650px;
 $footerContainerMinWidth4: 800px;
 $footerContainerMinWidth5: 960px;
 
-// footer container flex-basis progression
-$footerContainerFlexBasis1: 150px;
-$footerContainerFlexBasis2: 200px;
-$footerContainerFlexBasis3: 370px;
-$footerContainerFlexBasis4: 430px;
-$footerContainerFlexBasis5: 460px;
-
 // text container linear with progression
 $textContainerMinWidth1: 0px;
 $textContainerMinWidth2: 420px;
 $textContainerMinWidth3: 650px;
 $textContainerMinWidth4: 800px;
 $textContainerMinWidth5: 960px;
+
+// footer container flex-basis progression
+$footerContainerFlexBasis1: 150px;
+$footerContainerFlexBasis2: 200px;
+$footerContainerFlexBasis3: 370px;
+$footerContainerFlexBasis4: 430px;
+$footerContainerFlexBasis5: 460px;
 
 // text container H1 font-size progression
 $textContainerH1FontSize1: 0px;
@@ -61,7 +61,7 @@ $assignmentsDescriptionFontSize5: 24px;
 
 // technology logo width progression
 $technologyLogoWidth1: 0px;
-$technologyLogoWidth2: 90px;
+$technologyLogoWidth2: 62px;
 $technologyLogoWidth3: 100px;
 $technologyLogoWidth4: 130px;
 $technologyLogoWidth5: 170px;
@@ -75,14 +75,14 @@ $contactFormLabelWidth5: 102px;
 
 // contact form label font size progression
 $contactFormLabelFontSize1: 0px;
-$contactFormLabelFontSize2: 14px;
-$contactFormLabelFontSize3: 16px;
+$contactFormLabelFontSize2: 16px;
+$contactFormLabelFontSize3: 18px;
 $contactFormLabelFontSize4: 20px;
 $contactFormLabelFontSize5: 22px;
 
 // contact form button font size progression
 $contactFormButtonFontSize1: 0px;
-$contactFormButtonFontSize2: 12px;
-$contactFormButtonFontSize3: 14px;
-$contactFormButtonFontSize4: 16px;
-$contactFormButtonFontSize5: 18px;
+$contactFormButtonFontSize2: 16px;
+$contactFormButtonFontSize3: 18px;
+$contactFormButtonFontSize4: 18px;
+$contactFormButtonFontSize5: 20px;
