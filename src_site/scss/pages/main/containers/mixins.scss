@@ -1,0 +1,22 @@
+// imports
+@import '../../../common/colors';
+
+// styles
+@mixin commonH2() {
+  box-sizing: border-box;
+
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  padding-left: 5px;
+  padding-right: 5px;
+
+  text-transform: uppercase;
+  text-align: center;
+
+  color: $mainDarkColor;
+}

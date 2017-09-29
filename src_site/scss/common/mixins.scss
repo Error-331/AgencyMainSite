@@ -1,0 +1,29 @@
+@mixin widthGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  width: calc(#{$m} * 100vw + #{$b});
+}
+
+@mixin flexBasisGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  flex-basis: calc(#{$m} * 100vw + #{$b});
+}
+
+@mixin fontSizeGatewayCalc($x1, $x2, $y1, $y2) {
+  $xDelta: $x2 - $x1;
+  $yDelta: $y2 - $y1;
+
+  $m: $yDelta / $xDelta;
+  $b: $y1 - $m * $x1;
+
+  font-size: calc(#{$m} * 100vw + #{$b});
+}

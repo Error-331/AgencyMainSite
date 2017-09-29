@@ -7,7 +7,8 @@
   "license": "proprietary",
   "scripts": {
     "build": "gulp copy-html & gulp copy-images & gulp compile-scss",
-    "start_server": "node ./src_server/server.js"
+    "watch": "gulp watch",
+    "start-server": "node ./src_server/server.js"
   },
   "dependencies": {},
   "devDependencies": {

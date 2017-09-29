@@ -1,0 +1,131 @@
+// imports
+@import '../../../common/colors';
+@import '../../../common/mixins';
+@import '../../../common/constants';
+
+@import './mixins';
+
+// styles
+>.technologyStackContainer {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  align-items: center;
+  align-content: flex-start;
+
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  z-index: 2;
+
+  >h2 {
+    @include commonH2();
+
+    margin-bottom: 20px;
+
+    @media only screen and (min-width: $footerContainerMinWidth1) {
+      @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
+    }
+
+    @media only screen and (min-width: $textContainerMinWidth2) {
+      @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH2FontSize2, $textContainerH2FontSize3);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth3) {
+      @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH2FontSize3, $textContainerH2FontSize4);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth4) {
+      @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth5) {
+      font-size: $textContainerH2FontSize5;
+    }
+
+    @media only screen and (min-width: 1250px) {
+      font-size: $textContainerH2FontSize5;
+    }
+  }
+
+  >.technologiesLogosContainer {
+    box-sizing: border-box;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    align-items: stretch;
+    align-content: flex-start;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @media only screen and (min-width: $footerContainerMinWidth1) {
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 1250px) {
+      justify-content: center;
+      width: 1250px;
+    }
+
+    >.technologyLogoContainer {
+      box-sizing: border-box;
+
+      display: flex;
+
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      align-items: center;
+      align-content: flex-start;
+
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: 20%;
+
+      margin-bottom: 70px;
+
+      padding-right: 5px;
+      padding-left: 5px;
+
+      >img {
+        @media only screen and (min-width: $footerContainerMinWidth1) {
+          @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $technologyLogoWidth1, $technologyLogoWidth2);
+        }
+
+        @media only screen and (min-width: $textContainerMinWidth2) {
+          @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $technologyLogoWidth2, $technologyLogoWidth3);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth3) {
+          @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $technologyLogoWidth3, $technologyLogoWidth4);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth4) {
+          @include widthGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $technologyLogoWidth4, $technologyLogoWidth5);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth5) {
+          width: $technologyLogoWidth5;
+        }
+
+        @media only screen and (min-width: 1250px) {
+          width: $technologyLogoWidth5;
+        }
+      }
+    }
+  }
+}

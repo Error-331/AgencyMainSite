@@ -1,0 +1,239 @@
+// imports
+@import '../../../common/colors';
+@import '../../../common/mixins';
+@import '../../../common/constants';
+
+// styles
+>.introContainer {
+  box-sizing: border-box;
+
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  align-items: stretch;
+  align-content: flex-start;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  >.textContainer {
+    position: relative;
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    z-index: 2;
+
+    @media only screen and (min-width: $footerContainerMinWidth4) {
+      flex-grow: 1;
+    }
+
+    >h1 {
+      box-sizing: border-box;
+
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      padding-left: 5px;
+      padding-right: 5px;
+
+      text-transform: uppercase;
+      text-align: center;
+
+      color: $mainDarkColor;
+
+      @media only screen and (min-width: $footerContainerMinWidth1) {
+        @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH1FontSize1, $textContainerH1FontSize2);
+      }
+
+      @media only screen and (min-width: $textContainerMinWidth2) {
+        @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH1FontSize2, $textContainerH1FontSize3);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth3) {
+        @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH1FontSize3, $textContainerH1FontSize4);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth4) {
+        @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH1FontSize4, $textContainerH1FontSize5);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth5) {
+        font-size: $textContainerH1FontSize5;
+      }
+    }
+
+    >.descriptionContainer {
+      box-sizing: border-box;
+      color: $mainMiddleColor;
+
+      @media only screen and (min-width: $footerContainerMinWidth1) {
+        width: 90%;
+        @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerDescriptionFontSize1, $textContainerDescriptionFontSize2);
+      }
+
+      @media only screen and (min-width: $textContainerMinWidth2) {
+        @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $descriptionContainerWidth1, $descriptionContainerWidth2);
+        @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerDescriptionFontSize2, $textContainerDescriptionFontSize3);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth3) {
+        @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $descriptionContainerWidth2, $descriptionContainerWidth3);
+        @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerDescriptionFontSize3, $textContainerDescriptionFontSize4);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth4) {
+        width: 780px;
+        @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerDescriptionFontSize4, $textContainerDescriptionFontSize5);
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth5) {
+        width: 820px;
+        font-size: $textContainerDescriptionFontSize5;
+      }
+    }
+
+    >.buttonsContainer {
+      box-sizing: border-box;
+      display: flex;
+
+      margin-top: 15px;
+
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      align-items: center;
+      align-content: flex-start;
+
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+
+      >.button {
+        box-sizing: border-box;
+        display: block;
+
+        border: 2px solid $mainDarkColor;
+        padding: 5px 20px 5px 20px;
+
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+
+        color: $mainDarkColor;
+        background-color: $whiteColor;
+
+        @media only screen and (min-width: $footerContainerMinWidth1) {
+          @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerDescriptionFontSize1, $textContainerDescriptionFontSize2);
+        }
+
+        @media only screen and (min-width: $textContainerMinWidth2) {
+          @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerDescriptionFontSize2, $textContainerDescriptionFontSize3);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth3) {
+          @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerDescriptionFontSize3, $textContainerDescriptionFontSize4);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth4) {
+          @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerDescriptionFontSize4, $textContainerDescriptionFontSize5);
+        }
+
+        @media only screen and (min-width: $footerContainerMinWidth5) {
+          font-size: $textContainerDescriptionFontSize5;
+        }
+      }
+
+      >.button:first-child {
+        margin-right: 20px;
+      }
+
+      >.primaryButton {
+        background-color: $mainDarkColor;
+        color: $whiteColor;
+      }
+    }
+  }
+
+  >.footerContainer {
+    position: relative;
+    box-sizing: border-box;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-attachment: scroll;
+    background-size: 100% 100%;
+
+    box-shadow: 0px -25px 35px -25px $blackColor inset;
+    z-index: 1;
+
+    @media only screen and (min-width: $footerContainerMinWidth1) {
+      @include flexBasisGatewayCalc($footerContainerMinWidth1, $footerContainerMinWidth2, $footerContainerFlexBasis1, $footerContainerFlexBasis2);
+      background-image: url('images/background/main_background_960.png');
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth1) and (max-height: 315px) {
+      background-image: none;
+      box-shadow: none;
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth2) {
+      @include flexBasisGatewayCalc($footerContainerMinWidth2, $footerContainerMinWidth3, $footerContainerFlexBasis2, $footerContainerFlexBasis3);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth2) and (max-height: 370px) {
+      background-image: none;
+      box-shadow: none;
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth3) {
+      @include flexBasisGatewayCalc($footerContainerMinWidth3, $footerContainerMinWidth4, $footerContainerFlexBasis3, $footerContainerFlexBasis4);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth3) and (max-height: 400px) {
+      background-image: none;
+      box-shadow: none;
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth4) {
+      @include flexBasisGatewayCalc($footerContainerMinWidth4, $footerContainerMinWidth5, $footerContainerFlexBasis4, $footerContainerFlexBasis5);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth4) and (max-height: 470px) {
+      background-image: none;
+      box-shadow: none;
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth5) {
+      flex-basis: 60vh;
+      background-image: url('images/background/main_background.svg');
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth5) and (max-height: 600px) {
+      background-image: none;
+      box-shadow: none;
+    }
+  }
+}

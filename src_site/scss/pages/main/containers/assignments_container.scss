@@ -1,0 +1,176 @@
+// imports
+@import '../../../common/colors';
+@import '../../../common/mixins';
+@import '../../../common/constants';
+
+@import './mixins';
+
+// styles
+>.assignmentsContainer {
+  box-sizing: border-box;
+  display: flex;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+  align-items: stretch;
+  align-content: flex-start;
+
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+
+  padding-bottom: 50px;
+
+  >h2 {
+    @include commonH2();
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: $footerContainerMinWidth1) {
+      @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $textContainerH2FontSize1, $textContainerH2FontSize2);
+    }
+
+    @media only screen and (min-width: $textContainerMinWidth2) {
+      @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $textContainerH2FontSize2, $textContainerH2FontSize3);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth3) {
+      @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $textContainerH2FontSize3, $textContainerH2FontSize4);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth4) {
+      @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $textContainerH2FontSize4, $textContainerH2FontSize5);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth5) {
+      font-size: $textContainerH2FontSize5;
+    }
+  }
+
+  >.assignmentsColumnsContainer {
+    box-sizing: border-box;
+    display: flex;
+
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    align-items: stretch;
+    align-content: flex-start;
+
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .assignmentsColumnContainer {
+      box-sizing: border-box;
+      display: flex;
+
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      align-items: flex-start;
+      align-content: flex-start;
+
+      flex-grow: 0;
+      flex-shrink: 1;
+
+      @media only screen and (min-width: $footerContainerMinWidth1) {
+        width: 50%;
+        flex-basis: auto;
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth4) {
+        flex-basis: auto;
+      }
+
+      @media only screen and (min-width: $footerContainerMinWidth5) {
+        flex-basis: 477px;
+      }
+
+      .assignmentsRowContainer {
+        box-sizing: border-box;
+        display: flex;
+
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        align-items: center;
+        align-content: flex-start;
+
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+
+        padding-top: 12px;
+
+        .assignmentsIconContainer {
+          >img {
+            @media only screen and (min-width: $footerContainerMinWidth1) {
+              @include widthGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $assignmentsImageWidth1, $assignmentsImageWidth2);
+            }
+
+            @media only screen and (min-width: $textContainerMinWidth2) {
+              @include widthGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $assignmentsImageWidth2, $assignmentsImageWidth3);
+            }
+
+            @media only screen and (min-width: $footerContainerMinWidth3) {
+              @include widthGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $assignmentsImageWidth3, $assignmentsImageWidth4);
+            }
+
+            @media only screen and (min-width: $footerContainerMinWidth4) {
+              @include widthGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $assignmentsImageWidth4, $assignmentsImageWidth5);
+            }
+
+            @media only screen and (min-width: $footerContainerMinWidth5) {
+              width: $assignmentsImageWidth5;
+            }
+          }
+        }
+
+        .assignmentsDescriptionContainer {
+          box-sizing: border-box;
+
+          padding-left: 10px;
+          color: $mainDarkColor;
+
+          @media only screen and (min-width: $footerContainerMinWidth1) {
+            @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $assignmentsDescriptionFontSize1, $assignmentsDescriptionFontSize2);
+          }
+
+          @media only screen and (min-width: $textContainerMinWidth2) {
+            @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $assignmentsDescriptionFontSize2, $assignmentsDescriptionFontSize3);
+          }
+
+          @media only screen and (min-width: $footerContainerMinWidth3) {
+            @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $assignmentsDescriptionFontSize3, $assignmentsDescriptionFontSize4);
+          }
+
+          @media only screen and (min-width: $footerContainerMinWidth4) {
+            @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $assignmentsDescriptionFontSize4, $assignmentsDescriptionFontSize5);
+          }
+
+          @media only screen and (min-width: $footerContainerMinWidth5) {
+            font-size: $assignmentsDescriptionFontSize5;
+          }
+        }
+      }
+    }
+
+    .assignmentsColumnContainer:first-child {
+      padding-right: 10px;
+    }
+
+    .assignmentsColumnContainer:nth-child(2) {
+      padding-left: 10px;
+    }
+  }
+}
