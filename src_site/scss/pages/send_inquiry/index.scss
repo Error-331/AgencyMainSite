@@ -1,0 +1,51 @@
+// imports (global)
+@import '../../common/colors';
+@import '../../common/mixins';
+@import '../../common/constants';
+
+// imports (local)
+@import './constants';
+
+>.fullPageInfoContainer {
+  box-sizing: border-box;
+
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  align-items: center;
+  align-content: flex-start;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+  >h1 {
+    text-align: center;
+    color: $mainDarkColor;
+
+    @media only screen and (min-width: $footerContainerMinWidth1) {
+      @include fontSizeGatewayCalc($textContainerMinWidth1, $textContainerMinWidth2, $h1FontSize1, $h1FontSize2);
+    }
+
+    @media only screen and (min-width: $textContainerMinWidth2) {
+      @include fontSizeGatewayCalc($textContainerMinWidth2, $textContainerMinWidth3, $h1FontSize2, $h1FontSize3);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth3) {
+      @include fontSizeGatewayCalc($textContainerMinWidth3, $textContainerMinWidth4, $h1FontSize3, $h1FontSize4);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth4) {
+      @include fontSizeGatewayCalc($textContainerMinWidth4, $textContainerMinWidth5, $h1FontSize4, $h1FontSize5);
+    }
+
+    @media only screen and (min-width: $footerContainerMinWidth5) {
+      font-size: $h1FontSize5;
+    }
+  }
+}

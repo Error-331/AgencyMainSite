@@ -5,7 +5,7 @@ const path = require('path');
 
 const routes = [
     {
-        path: 'send/inquiry',
+        path: 'send_inquiry.html',
         handler: function() {
             return new Promise((resolve) => {
                 const server = this;
@@ -37,10 +37,8 @@ const routes = [
                     this.end('\n');
                 });
 
-                usersTXTFileStream.on('close', function(){
-                    server._response.writeHead(200);
-                    server._response.end('Success!');
-
+                usersTXTFileStream.on('close', async function(){
+                    await server._serveStaticFileByURLParams();
                     resolve();
                 });
 

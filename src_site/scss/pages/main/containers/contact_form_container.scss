@@ -1,8 +1,10 @@
-//  imports
+// imports (global)
 @import '../../../common/colors';
 @import '../../../common/mixins';
 @import '../../../common/constants';
 
+// imports (local)
+@import './constants';
 @import './mixins';
 
 // styles
