@@ -22,6 +22,7 @@ const routes = [
 
                 const usersTXTFileStream = fs.createWriteStream(dataFileLocation, {
                     flags: 'a',
+                    encoding: 'utf8',
                     autoClose: true
                 });
 
